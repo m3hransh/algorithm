@@ -1,0 +1,18 @@
+\section{Brute Force}
+Our first solution is to check all the possible 
+subarrays. Every subarray is consists of a start 
+and an end. So there are $\binom{n}{2} + n $
+possible sub-arrays that is needed to consider
+( n is for subarray of length 1). 
+This can be implemented with two for-loops. The 
+first for-loop chooses different possible 
+values for the beginning of the sub-array 
+and the second one values for the end of 
+that sub-array. The implementation is in 
+\textbf{Listing \ref{list:brute-force}}.
+\pythonexternal[caption={\textbf{Brute force implemented of maximum subarray sum}},
+    label={list:brute-force}]{codes/brute_force.py}
+As you can see, for-loops go through all the possible 
+subarrays, and for each, only it takes $\Theta(1)$ 
+to check if it is the maximum or not. So in total 
+takes $\Theta(n^2)$ to find the maximum subarray.
