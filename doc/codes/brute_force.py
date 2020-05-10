@@ -1,4 +1,4 @@
-def max_sum_sub_brute_force(A):
+def maximum_subarray_1(A):
     '''Return a tuple(range i,j,sum).
 
     argument:

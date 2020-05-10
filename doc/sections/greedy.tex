@@ -1,0 +1,44 @@
+\section{Greedy}
+To solve maximum subarray sum with the 
+greedy approach, we need to define another 
+structure. Let's define $S_i$ to be 
+the largest subarray sum that ends at $i_{th}$ 
+element of the array. If the $S_{i-1}$ is 
+known, we can find $S_i$ using following theorem.
+\newline
+\newline
+\textbf{Theorem}
+\newline
+If $S_{i-1}$ is negetive then $S_i$ is only include $A[i]$ 
+element otherwise $S_i = S_{i-1} + A[i] $.
+\newline
+\newline
+\textbf{Proof} \quad Let $S_{i-1}$ be the largest 
+subarray that ends at the $(i-1)_{th}$ element.
+We need to prove in two cases that we can build 
+the $S_i$. The first case is when $S_{i-1}>0$. 
+Let $S_{i}=S_{i-1} + A[i]$ let's consider that 
+$S'_{i}$ doesn't consist $S_{i-1}$ so it consists 
+another subarray $R_{i-1}$ (ends at $i-1_{th}$ 
+element) instead of $S_{i-1}$ so $S'_i = R_{i-1} 
++ A[i]$ and $S'_i > S_i$ so we can conclude that 
+$R_{i-1} > S_{i-1}$ that it contradicts our 
+assumption that $S_{i-1}$ is the largest subarray 
+that ends at the $(i-1)_{th}$ element. So 
+$S_{i}(=S_{i-1} + A[i])$ is the largest subarray if 
+$S_{i-1}>0$. For other case we can say
+$S_i = A[i]$ because if $S_{i-1}>0$ we can conclude 
+$A[i]> S_{i-1} + A[i]$ and there isn't any other 
+option to replace $S_{i-1}$ cause they are also 
+negetive and if they become postive it contradicts 
+our assumption again.
+
+\pythonexternal[caption={\textbf{greedy implementation of the maximum subarray}},
+    label={list:greedy}]{codes/greedy.py}
+
+\subsection{Cost Analysis}
+The function consists of a for-loop and it 
+traverses $n$ elements in the array and inside 
+of the for-loop the if statements only take 
+$\Theta(1)$. So in total, it takes $\Theta(n)$ 
+to find the largest subarray.
